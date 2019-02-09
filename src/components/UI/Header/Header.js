@@ -1,5 +1,6 @@
 import React from 'react'
 import { Layout, Menu, Icon } from 'antd'
+import { Link } from 'react-router-dom'
 
 import './Header.css'
 
@@ -15,8 +16,10 @@ const Header = () => (
         <span>Item 1</span>
       </Menu.Item>
       <Menu.Item key="2">
-        <Icon type='shop' />
-        <span>Item 2</span>
+        <Link to='/supermarkets/list'>
+          <Icon type='shop' />
+          <span>Supermarkets</span>
+        </Link>
       </Menu.Item>
       <Menu.Item key="3">
         <Icon type='shop' />
