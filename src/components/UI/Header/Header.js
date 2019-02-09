@@ -7,7 +7,7 @@ const Header = () => (
   <Layout.Header>
     <div className='logo'>
       <Icon type="shopping-cart" />
-      <h1 className='logo-title'>My Supmermarket List</h1>
+      <h1 className='logo-title'>My Supermarket List</h1>
     </div>
     <Menu mode='horizontal' defaultSelectedKeys={['1']} theme="dark" >
       <Menu.Item key="1">
