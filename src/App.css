@@ -1,0 +1,9 @@
+.anticon-loading {
+  font-size: 30px
+}
+
+.ant-spin-spinning {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}

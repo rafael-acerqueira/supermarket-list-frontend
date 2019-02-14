@@ -8,6 +8,8 @@ import Header from './components/UI/Header/Header'
 import Footer from './components/UI/Footer/Footer'
 import Root from './screens/Root'
 
+import './App.css'
+
 class App extends Component {
   render() {
     return (
