@@ -1,16 +1,66 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import SupermarketForm from '../../components/Supermarket/Form/Form'
+import api from '../../api'
+import { Row, Col, Spin, Icon } from 'antd'
 
 
-const ScreensSupermarketForm = ({ match: { params } }) => (
-  <div>
-    <h1>
-      { `${!params.id? 'Create': 'Update'}`} Supermarket
-    </h1>
-    <SupermarketForm id={params.id} />
-  </div>
-)
+class ScreensSupermarketForm extends PureComponent {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      supermarket: {}
+    }
+  }
+
+  async componentDidMount() {
+    if (this.props.match.params.id){
+      try{
+        const response =  await api('get', `/supermarkets/${this.props.match.params.id}`)
+        this.setState({ supermarket: response.data })
+      }catch(error) {
+        console.log(error)
+      }
+    }   
+  }
+
+
+  handleCreate(values, id = null) {
+    return api('post','/supermarkets', values)
+  }
+
+  handleUpdate(values, id) {
+    return api('put', `/supermarkets/${id}`, values)
+  }
+
+  render() {
+    const { params } = this.props.match
+    const antIcon = <Icon type="loading" spin />
+    
+    return (
+      <Row>
+        <Col xl={12}>
+          {
+            this.state.supermarket._id !== undefined || !this.props.match.params.id
+              ? 
+                <SupermarketForm
+                  handleSave={!params.id? this.handleCreate : this.handleUpdate}
+                  title={ `${!params.id? 'Cadastrar': 'Atualizar'} Supermercado`}
+                  supermarket={this.state.supermarket}
+                  message={`${!params.id? 'cadastrado': 'atualizado'}`}
+                  history={this.props.history}
+                />
+              : 
+                <Spin indicator={antIcon} />
+          }
+        </Col>
+      </Row>
+    )
+    
+  }
+}
 
 ScreensSupermarketForm.propTypes = {
   match: PropTypes.shape({
