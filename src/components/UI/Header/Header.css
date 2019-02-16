@@ -6,7 +6,7 @@
 .ant-menu-horizontal {
   float: left;
   line-height: 64px;
-  width: 87%;
+  width: 80%;
 }
 
 .logo-title {
@@ -22,5 +22,5 @@
   float: left;
   justify-content: space-evenly;
   height: 100%;
-  width: 13%;
+  width: 18%;
 }

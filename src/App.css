@@ -1,9 +1,40 @@
 .anticon-loading {
-  font-size: 30px
+  font-size: 30px;
 }
 
 .ant-spin-spinning {
   display: flex;
   width: 100%;
   justify-content: center;
+}
+
+.center-content {
+  max-width: 1200px;
+  margin: auto;
+  width: 100%;
+}
+
+.center-content.wrapper-content {
+  margin-top: 30px;
+  height: 69vh;
+}
+
+.panel {
+  height: 140px;
+  background-color: #FFF;
+  width: 100%;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.panel .page-title {
+  margin-top: 50px;
+}
+
+.form {
+  background-color: #FFF;
+  padding: 30px;
 }

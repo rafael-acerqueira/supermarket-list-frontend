@@ -40,25 +40,23 @@ class ScreensSupermarketForm extends PureComponent {
     const antIcon = <Icon type="loading" spin />
     
     return (
-      <Row>
-        <Col xl={12}>
-          {
-            this.state.supermarket._id !== undefined || !this.props.match.params.id
-              ? 
-                <SupermarketForm
-                  handleSave={!params.id? this.handleCreate : this.handleUpdate}
-                  title={ `${!params.id? 'Cadastrar': 'Atualizar'} Supermercado`}
-                  supermarket={this.state.supermarket}
-                  message={`${!params.id? 'cadastrado': 'atualizado'}`}
-                  history={this.props.history}
-                />
-              : 
-                <Spin indicator={antIcon} />
-          }
-        </Col>
-      </Row>
+      <>
+        {
+          this.state.supermarket._id !== undefined || !this.props.match.params.id
+            ? 
+              <SupermarketForm
+                handleSave={!params.id? this.handleCreate : this.handleUpdate}
+                title={ `${!params.id? 'Cadastrar': 'Atualizar'} Supermercado`}
+                supermarket={this.state.supermarket}
+                message={`${!params.id? 'cadastrado': 'atualizado'}`}
+                pageInfo={`${!params.id? 'Cadastre': 'Atualize'}`}
+                history={this.props.history}
+              />
+            : 
+              <Spin indicator={antIcon} />
+        }
+      </>
     )
-    
   }
 }
 

@@ -8,21 +8,30 @@ const SupermarketForm = props => {
   const antIcon = <Icon type="loading" spin />
   const { values, handleChange, handleSubmit, handleBlur, isSubmitting, errors, title } = props
   return (
-    <Form onSubmit={handleSubmit}>
-      <h1>{title}</h1>
-      {isSubmitting && <Spin indicator={antIcon} />}
-      <Form.Item
-        label="Nome"
-      >
-        <Input name='name' onChange={handleChange} onBlur={handleBlur} value={values.name} />
-        {errors.name && <div className='ant-form-explain'>{errors.name}</div>}
-      </Form.Item>
-      <Form.Item>
-        <Button type="primary" htmlType="submit" disabled={isSubmitting}>
-          {title}
-        </Button>
-      </Form.Item>
-    </Form>
+    <>
+    <div className='panel'>
+      <div className='center-content'>
+        <h1 className='page-title'>{title}</h1>
+        <span className='page-info'>{`${props.pageInfo} os dados so supermercado abaixo`}</span>
+      </div>
+    </div>
+    <div className='center-content wrapper-content'>
+      <Form onSubmit={handleSubmit} className='form'>
+        {isSubmitting && <Spin indicator={antIcon} />}
+        <Form.Item
+          label="Nome"
+        >
+          <Input name='name' onChange={handleChange} onBlur={handleBlur} value={values.name} />
+          {errors.name && <div className='ant-form-explain'>{errors.name}</div>}
+        </Form.Item>
+        <Form.Item>
+          <Button type="primary" htmlType="submit" disabled={isSubmitting}>
+            Salvar
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
+    </>
   )
 }
 
