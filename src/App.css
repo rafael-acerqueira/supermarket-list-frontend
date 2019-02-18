@@ -11,12 +11,19 @@
 .center-content {
   max-width: 1200px;
   margin: auto;
+  position: relative;
   width: 100%;
 }
 
 .center-content.wrapper-content {
   margin-top: 30px;
-  height: 69vh;
+  min-height: 69vh;
+}
+
+.center-content .add-button {
+  position: absolute;
+  right: 0;
+  bottom: 50%;
 }
 
 .panel {

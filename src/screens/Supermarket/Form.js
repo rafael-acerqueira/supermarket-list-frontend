@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import SupermarketForm from '../../components/Supermarket/Form/Form'
 import api from '../../api'
-import { Row, Col, Spin, Icon } from 'antd'
+import { Spin, Icon } from 'antd'
 
 
 class ScreensSupermarketForm extends PureComponent {
@@ -43,8 +43,7 @@ class ScreensSupermarketForm extends PureComponent {
       <>
         {
           this.state.supermarket._id !== undefined || !this.props.match.params.id
-            ? 
-              <SupermarketForm
+            ? <SupermarketForm
                 handleSave={!params.id? this.handleCreate : this.handleUpdate}
                 title={ `${!params.id? 'Cadastrar': 'Atualizar'} Supermercado`}
                 supermarket={this.state.supermarket}
@@ -52,8 +51,7 @@ class ScreensSupermarketForm extends PureComponent {
                 pageInfo={`${!params.id? 'Cadastre': 'Atualize'}`}
                 history={this.props.history}
               />
-            : 
-              <Spin indicator={antIcon} />
+            : <Spin indicator={antIcon} />
         }
       </>
     )

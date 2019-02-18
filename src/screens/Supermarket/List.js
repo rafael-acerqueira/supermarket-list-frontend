@@ -1,7 +1,56 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
+import List from '../../components/Supermarket/List/List'
+import api from '../../api'
+import { Spin, Icon } from 'antd'
+class ScreensSupermarketList extends PureComponent {
 
-const ScreensSupermarketList = () => (
-  <div>Lista</div>
-)
+  constructor(props) {
+    super(props)
+
+    this.remove = this.remove.bind(this)
+
+    this.state = {
+      supermarkets: []
+    }
+  }
+
+  async componentDidMount() {
+    try {
+      const response = await api('get', '/supermarkets')
+      this.setState({ supermarkets: response.data })
+    }catch(error) {
+      console.log(error)
+    }
+  }
+
+  async remove(id) {
+    try {
+      const response = await api('delete', `/supermarkets/${id}`)
+      if(response.status === 200) 
+        this.setState((state, props) => ({
+          supermarkets: state.supermarkets.filter(supermarket => supermarket._id !== id)
+        }))
+    }catch(error) {
+      console.log(error)
+    }
+  }
+
+  render() {
+    const antIcon = <Icon type="loading" spin />
+    return (
+      <>
+        {this.state.supermarkets.length === 0 
+          ? <Spin indicator={antIcon} />
+          : <List 
+              supermarkets={this.state.supermarkets}
+              handleRemove={this.remove}
+            />
+        }
+        
+      </>
+      
+    )
+  }
+}
 
 export default ScreensSupermarketList

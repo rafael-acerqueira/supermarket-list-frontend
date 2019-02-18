@@ -14,7 +14,7 @@ const Header = () => (
       <Menu mode='horizontal' defaultSelectedKeys={['1']} theme="dark" >
         <Menu.Item key="1">
           <Icon type='dashboard' />
-          <span>Item 1</span>
+          <span>Dashboard</span>
         </Menu.Item>
         <Menu.Item key="2">
           <Link to='/supermarkets/list'>
