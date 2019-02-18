@@ -17,7 +17,10 @@ class ScreensSupermarketList extends PureComponent {
   async componentDidMount() {
     try {
       const response = await api('get', '/supermarkets')
-      this.setState({ supermarkets: response.data })
+      this.setState({ 
+        supermarkets: response.data.sort((a,b) => new Date(b.createdDate) - new Date(a.createdDate))
+      })
+      
     }catch(error) {
       console.log(error)
     }
