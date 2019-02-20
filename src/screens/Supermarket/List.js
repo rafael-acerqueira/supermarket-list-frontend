@@ -10,15 +10,18 @@ class ScreensSupermarketList extends PureComponent {
     this.remove = this.remove.bind(this)
 
     this.state = {
-      supermarkets: []
+      supermarkets: [],
+      isLoading: false
     }
   }
 
   async componentDidMount() {
     try {
+      this.setState({ isLoading: true })
       const response = await api('get', '/supermarkets')
       this.setState({ 
-        supermarkets: response.data.sort((a,b) => new Date(b.createdDate) - new Date(a.createdDate))
+        supermarkets: response.data.sort((a,b) => new Date(b.createdDate) - new Date(a.createdDate)),
+        isLoading: false
       })
       
     }catch(error) {
@@ -42,7 +45,7 @@ class ScreensSupermarketList extends PureComponent {
     const antIcon = <Icon type="loading" spin />
     return (
       <>
-        {this.state.supermarkets.length === 0 
+        {this.state.isLoading 
           ? <Spin indicator={antIcon} />
           : <List 
               supermarkets={this.state.supermarkets}

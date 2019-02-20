@@ -21,7 +21,7 @@ const SupermarketForm = props => {
         <Form.Item
           label="Nome"
         >
-          <Input name='name' onChange={handleChange} onBlur={handleBlur} value={values.name} />
+          <Input name='name' autoFocus onChange={handleChange} onBlur={handleBlur} value={values.name} />
           {errors.name && <div className='ant-form-explain'>{errors.name}</div>}
         </Form.Item>
         <Form.Item>
