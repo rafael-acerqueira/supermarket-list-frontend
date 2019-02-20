@@ -19,12 +19,12 @@ const Header = () => (
         <Menu.Item key="2">
           <Link to='/supermarkets/list'>
             <Icon type='shop' />
-            <span>Supermarkets</span>
+            <span>Supermercados</span>
           </Link>
         </Menu.Item>
         <Menu.Item key="3">
-          <Icon type='shop' />
-          <span>Item 3</span>
+          <Icon type='cluster' />
+          <span>Categorias de Produto</span>
         </Menu.Item>
       </Menu>
     </div>

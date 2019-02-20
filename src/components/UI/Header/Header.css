@@ -9,6 +9,10 @@
   width: 80%;
 }
 
+.ant-menu-horizontal .anticon {
+  font-size: 18px;
+}
+
 .logo-title {
   color: #FFF;
   font-size: 16px;  

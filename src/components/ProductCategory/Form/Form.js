@@ -1,10 +1,11 @@
-import  React  from 'react'
+import React from 'react'
 import { withFormik } from 'formik'
 import * as Yup from 'yup'
 import { Form, Input, Button, Spin, Icon, message } from 'antd'
+
 import './Form.css'
 
-const SupermarketForm = props => {
+const ProductCategoryForm = props => {
   const antIcon = <Icon type="loading" spin />
   const { values, handleChange, handleSubmit, handleBlur, isSubmitting, errors, title } = props
   return (
@@ -12,7 +13,7 @@ const SupermarketForm = props => {
     <div className='panel'>
       <div className='center-content'>
         <h1 className='page-title'>{title}</h1>
-        <span className='page-info'>{`${props.pageInfo} os dados do supermercado abaixo`}</span>
+        <span className='page-info'>{`${props.pageInfo} os dados da categoria do produto abaixo`}</span>
       </div>
     </div>
     <div className='center-content wrapper-content'>
@@ -37,23 +38,23 @@ const SupermarketForm = props => {
 
 export default withFormik({
   mapPropsToValues: (props) => ({
-    name: props.supermarket ? props.supermarket.name : ''
+    name: ''
   }),
   validationSchema: Yup.object().shape({
     name: Yup.string()
       .required('Preencha o campo de nome')
   }),
   handleSubmit: (values, { props, setSubmitting, resetForm, setErrors }) => {
-    props.handleSave(values, props.supermarket._id)
+    props.handleSave(values)
     .then(() => {
-      message.success(`Supermercado ${props.message} com sucesso.`)
+      message.success(`Categoria de Produto ${props.message} com sucesso.`)
       setSubmitting(false)
       resetForm({})
       props.history.push('/supermarkets/list')
     }, (err) => {
-      message.error(`Erro ao ${props.message} o Supermercado.`)
+      message.error(`Erro ao ${props.message} o Categoria de Produto.`)
       setSubmitting(false)
       setErrors({ message: err.message })
     })
   }
-})(SupermarketForm)
+})(ProductCategoryForm)
