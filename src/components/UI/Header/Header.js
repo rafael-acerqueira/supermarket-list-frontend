@@ -23,8 +23,10 @@ const Header = () => (
           </Link>
         </Menu.Item>
         <Menu.Item key="3">
-          <Icon type='cluster' />
-          <span>Categorias de Produto</span>
+          <Link to='/product-categories/list'>
+            <Icon type='cluster' />
+            <span>Categorias de Produto</span>
+          </Link>
         </Menu.Item>
       </Menu>
     </div>

@@ -5,6 +5,7 @@ import ScreensSupermarketForm from '../screens/Supermarket/Form'
 import ScreensSupermarketList from '../screens/Supermarket/List'
 
 import ScreensProductCategoryForm from '../screens/ProductCategory/Form'
+import ScreensProductCategoryList from '../screens/ProductCategory/List'
 
 const ScreensRoot = () => (
   <Switch>
@@ -13,6 +14,7 @@ const ScreensRoot = () => (
     <Route path='/supermarkets/list' component={ScreensSupermarketList} />
     <Route path='/product-categories/new' component={ScreensProductCategoryForm}/>
     <Route path='/product-categories/:id/edit' component={ScreensProductCategoryForm}/>
+    <Route path='/product-categories/list' component={ScreensProductCategoryList} />
     <Redirect from='*' to='/' />
   </Switch>
 )

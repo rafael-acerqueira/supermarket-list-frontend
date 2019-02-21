@@ -50,7 +50,7 @@ export default withFormik({
       message.success(`Categoria de Produto ${props.message} com sucesso.`)
       setSubmitting(false)
       resetForm({})
-      props.history.push('/supermarkets/list')
+      props.history.push('/product-categories/list')
     }, (err) => {
       message.error(`Erro ao ${props.message} o Categoria de Produto.`)
       setSubmitting(false)
