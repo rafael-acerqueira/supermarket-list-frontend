@@ -12,6 +12,7 @@ const ScreensRoot = () => (
     <Route path='/supermarkets/:id/edit' component={ScreensSupermarketForm}/>
     <Route path='/supermarkets/list' component={ScreensSupermarketList} />
     <Route path='/product-categories/new' component={ScreensProductCategoryForm}/>
+    <Route path='/product-categories/:id/edit' component={ScreensProductCategoryForm}/>
     <Redirect from='*' to='/' />
   </Switch>
 )

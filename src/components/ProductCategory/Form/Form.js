@@ -38,14 +38,14 @@ const ProductCategoryForm = props => {
 
 export default withFormik({
   mapPropsToValues: (props) => ({
-    name: ''
+    name: props.productCategory ? props.productCategory.name : ''
   }),
   validationSchema: Yup.object().shape({
     name: Yup.string()
       .required('Preencha o campo de nome')
   }),
   handleSubmit: (values, { props, setSubmitting, resetForm, setErrors }) => {
-    props.handleSave(values)
+    props.handleSave(values, props.productCategory._id)
     .then(() => {
       message.success(`Categoria de Produto ${props.message} com sucesso.`)
       setSubmitting(false)
