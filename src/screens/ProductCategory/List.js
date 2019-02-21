@@ -7,11 +7,25 @@ class ScreensProductCategoryList extends PureComponent {
   constructor(props) {
     super(props)
 
+    this.remove = this.remove.bind(this)
+
     this.state = {
       productCategories: [],
       isLoading: false
     }
   }
+
+  async remove(id) {
+    try {
+      const response = await api('delete', `/product-categories/${id}`)
+      if(response.status === 200) 
+        this.setState((state, props) => ({
+          productCategories: state.productCategories.filter(productCategory => productCategory._id !== id)
+        }))
+    }catch(error) {
+      console.log(error)
+    }
+  }  
 
   async componentDidMount() {
     try {
@@ -35,6 +49,7 @@ class ScreensProductCategoryList extends PureComponent {
           ? <Spin indicator={antIcon} />
           : <List 
               productCategories={this.state.productCategories}
+              handleRemove={this.remove}
             />
         }
         

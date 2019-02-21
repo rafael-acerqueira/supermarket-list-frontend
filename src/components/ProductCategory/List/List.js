@@ -29,6 +29,11 @@ const List = (props) => (
                     <Icon type="edit" />
                   </Link>
                 </Tooltip>
+                <Tooltip title="Apagar">
+                  <a onClick={() => props.handleRemove(productCategory._id)}>
+                    <Icon type="delete" />
+                  </a>
+                </Tooltip>
               </Card>
             </Col>
           ))
