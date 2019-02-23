@@ -32,7 +32,7 @@ class ScreensProductCategoryList extends PureComponent {
       this.setState({ isLoading: true })
       const response = await api('get', '/product-categories')
       this.setState({ 
-        productCategories: response.data,
+        productCategories: response.data.sort((a,b) => new Date(b.createdDate) - new Date(a.createdDate)),
         isLoading: false
       })
       

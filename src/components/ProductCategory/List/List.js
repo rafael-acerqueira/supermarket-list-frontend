@@ -34,6 +34,11 @@ const List = (props) => (
                     <Icon type="delete" />
                   </a>
                 </Tooltip>
+                <Tooltip title="Listar produtos">
+                  <Link to={`/product-categories/${productCategory._id}/products`}>
+                  <Icon type="ordered-list" />
+                  </Link>
+                </Tooltip>
               </Card>
             </Col>
           ))
