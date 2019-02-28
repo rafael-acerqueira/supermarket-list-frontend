@@ -28,6 +28,12 @@ const Header = () => (
             <span>Categorias de Produto</span>
           </Link>
         </Menu.Item>
+        <Menu.Item key="4">
+          <Link to='/shopping-lists/list'>
+          <Icon type="ordered-list" />
+            <span>Listas de Compras</span>
+          </Link>
+        </Menu.Item>
       </Menu>
     </div>
   </Layout.Header>
