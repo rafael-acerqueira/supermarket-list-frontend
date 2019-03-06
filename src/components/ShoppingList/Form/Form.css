@@ -1,0 +1,32 @@
+.shopping-list-items {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.shopping-list-items .ant-form-item-label {
+  width: 100%;
+  text-align: center;
+}
+
+.shopping-list-items .shopping-list-add {
+  width: 100%;
+}
+
+.shopping-list-fields {
+  display: flex;
+  justify-content: center;
+}
+
+.shopping-list-date {
+  margin-right: 5px;
+}
+
+.shopping-list-supemarket {
+  width: 19% !important;
+}
+
+.shopping-list-fields .ant-form-item-label, .shopping-list-supemarket .ant-form-item-label {
+  text-align: center;
+  width: 100%;
+}

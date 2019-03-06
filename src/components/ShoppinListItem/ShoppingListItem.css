@@ -1,0 +1,12 @@
+.item-fields {
+  float: left;
+  margin-right: 10px;
+}
+
+.item-fields-product {
+  width: 75% !important;
+}
+
+.item-fields-quantity {
+  width: 15% !important;
+}

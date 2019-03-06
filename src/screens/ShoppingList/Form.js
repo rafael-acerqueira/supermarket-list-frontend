@@ -10,13 +10,18 @@ class ScreensShoppingListForm extends PureComponent {
   constructor(props) {
     super(props)
 
+    this.handleSearch = this.handleSearch.bind(this)
+
     this.state = {
-      shoppingList: {},
-      supermarkets: []
+      shoppingList: {
+        items: []
+      },
+      supermarkets: [],
+      dataSource: []
     }
   }
 
-  async componentDidMount() {
+  async componentDidMount() {    
     if (this.props.match.params.id){
       try{
         const response =  await api('get', `/shopping-lists/${this.props.match.params.id}`)
@@ -32,6 +37,13 @@ class ScreensShoppingListForm extends PureComponent {
     }catch(error) {
       console.log(error)
     }
+  
+    try {
+      const response =  await api('get', '/products')
+      this.setState({ dataSource: response.data })
+    }catch(error) {
+      console.log(error)
+    }  
   }
 
 
@@ -43,6 +55,17 @@ class ScreensShoppingListForm extends PureComponent {
     return api('put', `/shopping-lists/${id}`, values)
   }
 
+  async handleSearch(value) {
+    if(value) {
+      try {
+        const response =  await api('get', `/products/${value}/search`)
+        this.setState({ dataSource: response.data })
+      }catch(error) {
+        console.log(error)
+      }
+    }
+  }
+
   render() {
     const { params } = this.props.match
     const antIcon = <Icon type="loading" spin />
@@ -52,7 +75,9 @@ class ScreensShoppingListForm extends PureComponent {
           this.state.shoppingList._id !== undefined || !this.props.match.params.id
             ? <ShoppingListForm
                 handleSave={!params.id? this.handleCreate : this.handleUpdate}
+                handleSearch={this.handleSearch}
                 title={ `${!params.id? 'Cadastrar': 'Atualizar'} Lista de Compras`}
+                dataSource={this.state.dataSource}
                 shoppingList={this.state.shoppingList}
                 supermarkets={this.state.supermarkets}
                 message={`${!params.id? 'cadastrada': 'atualizada'}`}
