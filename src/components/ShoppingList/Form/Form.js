@@ -2,7 +2,7 @@ import locale from 'antd/lib/date-picker/locale/pt_BR'
 import moment from 'moment'
 import 'moment/locale/pt-br'
 import  React  from 'react'
-import ShoppingListItem from '../../ShoppinListItem/ShoppingListItem'
+import ShoppingListItem from '../../ShoppinListItem/Form/Form'
 import { withFormik, FieldArray } from 'formik'
 import * as Yup from 'yup'
 import { Row, Col, Form, DatePicker, Button, Select, Spin, Icon, Tooltip, message } from 'antd'
@@ -82,7 +82,7 @@ const ShoppingListForm = props => {
                   <Tooltip title="Adicionar">
                     <Button
                       type='primary'
-                      onClick={() => arrayHelpers.push({product: '', quantity: '', value:''})}
+                      onClick={() => arrayHelpers.push({product: '', quantity: '', value: 0})}
                       className='shopping-list-add'
                     >
                       Adicionar itens

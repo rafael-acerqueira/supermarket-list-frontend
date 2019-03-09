@@ -12,6 +12,7 @@ import ScreensProductForm from '../screens/Product/Form'
 
 import ScreensShoppingListList from '../screens/ShoppingList/List'
 import ScreensShoppingListForm from '../screens/ShoppingList/Form'
+import ScreensShoppingListItems from '../screens/ShoppingList/Items'
 
 const ScreensRoot = () => (
   <Switch>
@@ -27,6 +28,7 @@ const ScreensRoot = () => (
     <Route path='/shopping-lists/list' component={ScreensShoppingListList} />
     <Route path='/shopping-lists/new' component={ScreensShoppingListForm}/>
     <Route path='/shopping-lists/:id/edit' component={ScreensShoppingListForm}/>
+    <Route path='/shopping-lists/:id/items' component={ScreensShoppingListItems}/>
     <Redirect from='*' to='/' />
   </Switch>
 )

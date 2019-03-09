@@ -1,9 +1,9 @@
 import React from 'react'
 import { ErrorMessage, Field } from 'formik'
 import { Input, AutoComplete, Icon, Tooltip } from 'antd'
-import './ShoppingListItem.css'
+import './Form.css'
 
-const ShoppingListItem = props => {
+const Form = props => {
   const { index, values, setFieldValue, arrayHelpers, handleSearch, dataSource } = props
   const Option = AutoComplete.Option
   const autoCompleteChildren = dataSource.map(product => <Option key={product._id}>{product.name}</Option>)
@@ -47,5 +47,5 @@ const ShoppingListItem = props => {
   )
 }
 
-export default ShoppingListItem
+export default Form
 
