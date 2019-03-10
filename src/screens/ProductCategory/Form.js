@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import ProductCategoryForm from '../../components/ProductCategory/Form/Form'
+import TitleContent from '../../components/UI/TitleContent/TitleContent'
 import api from '../../api'
 import { Spin, Icon } from 'antd'
 
@@ -37,20 +38,22 @@ class ScreensProductCategoryForm extends PureComponent {
     const { params } = this.props.match
     const antIcon = <Icon type="loading" spin />
     return (
-      <>
+      <div>
+        <TitleContent 
+          title={ `${!params.id? 'Cadastrar': 'Atualizar'} Categoria de Produto`}
+          pageInfo={`${!params.id? 'Cadastre': 'Atualize'}`}
+        />
         {
           this.state.productCategory._id !== undefined || !this.props.match.params.id
             ? <ProductCategoryForm
                 handleSave={!params.id? this.handleCreate : this.handleUpdate}
-                title={ `${!params.id? 'Cadastrar': 'Atualizar'} Categoria de Produto`}
                 message={`${!params.id? 'cadastrada': 'atualizada'}`}
-                pageInfo={`${!params.id? 'Cadastre': 'Atualize'}`}
                 productCategory={this.state.productCategory}
                 history={this.props.history}
               />
             : <Spin indicator={antIcon} />
         }
-      </>
+      </div>
     )
   }
 

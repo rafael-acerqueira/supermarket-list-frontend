@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import SupermarketForm from '../../components/Supermarket/Form/Form'
 import api from '../../api'
 import { Spin, Icon } from 'antd'
+import TitleContent from '../../components/UI/TitleContent/TitleContent'
 
 
 class ScreensSupermarketForm extends PureComponent {
@@ -40,20 +41,22 @@ class ScreensSupermarketForm extends PureComponent {
     const antIcon = <Icon type="loading" spin />
     
     return (
-      <>
+      <div>
+        <TitleContent
+          title={ `${!params.id? 'Cadastrar': 'Atualizar'} Supermercado`}
+          pageInfo={`${!params.id? 'Cadastre': 'Atualize'}`}
+        />
         {
           this.state.supermarket._id !== undefined || !this.props.match.params.id
             ? <SupermarketForm
                 handleSave={!params.id? this.handleCreate : this.handleUpdate}
-                title={ `${!params.id? 'Cadastrar': 'Atualizar'} Supermercado`}
                 supermarket={this.state.supermarket}
                 message={`${!params.id? 'cadastrado': 'atualizado'}`}
-                pageInfo={`${!params.id? 'Cadastre': 'Atualize'}`}
                 history={this.props.history}
               />
             : <Spin indicator={antIcon} />
         }
-      </>
+      </div>
     )
   }
 }

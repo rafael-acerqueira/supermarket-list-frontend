@@ -6,15 +6,8 @@ import './Form.css'
 
 const SupermarketForm = props => {
   const antIcon = <Icon type="loading" spin />
-  const { values, handleChange, handleSubmit, handleBlur, isSubmitting, errors, title } = props
+  const { values, handleChange, handleSubmit, handleBlur, isSubmitting, errors } = props
   return (
-    <>
-    <div className='panel'>
-      <div className='center-content'>
-        <h1 className='page-title'>{title}</h1>
-        <span className='page-info'>{`${props.pageInfo} os dados do supermercado abaixo`}</span>
-      </div>
-    </div>
     <div className='center-content wrapper-content'>
       <Form onSubmit={handleSubmit} className='form'>
         {isSubmitting && <Spin indicator={antIcon} />}
@@ -31,7 +24,6 @@ const SupermarketForm = props => {
         </Form.Item>
       </Form>
     </div>
-    </>
   )
 }
 
