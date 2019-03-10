@@ -41,7 +41,7 @@ class ScreensProductCategoryForm extends PureComponent {
       <div>
         <TitleContent 
           title={ `${!params.id? 'Cadastrar': 'Atualizar'} Categoria de Produto`}
-          pageInfo={`${!params.id? 'Cadastre': 'Atualize'}`}
+          pageInfo={`${!params.id? 'Cadastre': 'Atualize'} os dados da categoria de produto abaixo`}
         />
         {
           this.state.productCategory._id !== undefined || !this.props.match.params.id

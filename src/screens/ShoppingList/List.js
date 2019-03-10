@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import List from '../../components/ShoppingList/List/List'
+import TitleContent from '../../components/UI/TitleContent/TitleContent'
 import api from '../../api'
 import { Spin, Icon } from 'antd'
 class ScreensShoppingListList extends PureComponent {
@@ -44,7 +45,12 @@ class ScreensShoppingListList extends PureComponent {
   render() {
     const antIcon = <Icon type="loading" spin />
     return (
-      <>
+      <div>
+        <TitleContent 
+          title='Listas de Compras'
+          pageInfo='Abaixo estão listadas as listas de compras cadastradas'
+          newElementPath='/shopping-lists/new'
+        />
         {this.state.isLoading 
           ? <Spin indicator={antIcon} />
           : <List 
@@ -53,7 +59,7 @@ class ScreensShoppingListList extends PureComponent {
             />
         }
         
-      </>
+      </div>
       
     )
   }

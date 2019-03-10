@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 import { Card, Tooltip, Icon, Col, Row } from 'antd'
 import './List.css'
 
-const List = (props) => (
+const List = ({ supermarkets, handleRemove }) => (
   <div className='center-content wrapper-content'>
     <Row gutter={16}>
       {
-        props.supermarkets.map( supermarket => (
+        supermarkets.map( supermarket => (
           <Col span={8} key={supermarket._id} className='supermarket-item'>
             <Card title={supermarket.name}>
               <Tooltip title="Editar">
@@ -16,7 +16,7 @@ const List = (props) => (
                 </Link>
               </Tooltip>
               <Tooltip title="Apagar">
-                <a onClick={() => props.handleRemove(supermarket._id)}>
+                <a onClick={() => handleRemove(supermarket._id)}>
                   <Icon type="delete" />
                 </a>
               </Tooltip>

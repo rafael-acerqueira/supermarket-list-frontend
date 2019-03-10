@@ -18,7 +18,7 @@ const TitleContent = ({ title, pageInfo, newElementPath }) => (
           </Button>
         </Tooltip>
       }
-      <span className='page-info'>{`${pageInfo} os dados do supermercado abaixo`}</span>
+      <span className='page-info'>{pageInfo}</span>
     </div>
   </div>
 )

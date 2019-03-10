@@ -15,13 +15,6 @@ const ShoppingListForm = props => {
   const antIcon = <Icon type="loading" spin />
   const { values, handleSubmit, setFieldValue, isSubmitting, handleSearch, errors, title, dataSource } = props
   return (
-    <>
-    <div className='panel'>
-      <div className='center-content'>
-        <h1 className='page-title'>{title}</h1>
-        <span className='page-info'>{`${props.pageInfo} os dados da da lista de compras abaixo`}</span>
-      </div>
-    </div>
     <div className='center-content wrapper-content'>
       <Form onSubmit={handleSubmit} className='form'>
         {isSubmitting && <Spin indicator={antIcon} />}
@@ -104,7 +97,6 @@ const ShoppingListForm = props => {
         </Form.Item>
       </Form>
     </div>
-    </>
   )
 }
 

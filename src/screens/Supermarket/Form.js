@@ -44,7 +44,7 @@ class ScreensSupermarketForm extends PureComponent {
       <div>
         <TitleContent
           title={ `${!params.id? 'Cadastrar': 'Atualizar'} Supermercado`}
-          pageInfo={`${!params.id? 'Cadastre': 'Atualize'}`}
+          pageInfo={`${!params.id? 'Cadastre': 'Atualize'} os dados do supermercado abaixo`}
         />
         {
           this.state.supermarket._id !== undefined || !this.props.match.params.id
