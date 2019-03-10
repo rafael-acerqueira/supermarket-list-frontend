@@ -6,11 +6,10 @@ import './Show.css'
 
 const Show = ({ shoppingList }) => {
   let dataSource = []
-  console.log(shoppingList.items)
   if (shoppingList.items) {
     dataSource = shoppingList.items.map((item, index) => ({
       key: index,
-      product: item.product,
+      product: item.productName,
       quantity: item.quantity,
       value: item.value,
       found: item.found ? 'Sim' : 'Não'

@@ -26,7 +26,6 @@ class ScreensShoppingListItems extends PureComponent {
 
   render() {
     const antIcon = <Icon type="loading" spin />
-    console.log(this.state.shoppingList.items)
     return (
       <>
         {this.state.isLoading 

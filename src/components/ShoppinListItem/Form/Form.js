@@ -16,7 +16,7 @@ const Form = props => {
             className='item-fields item-fields-product'
             onChange={(value) => setFieldValue(`items.${index}.product`, value)}
             onSearch={handleSearch}
-            placeholder="Digite o produto"
+            placeholder="Nome do produto"
             value={values.items[index].product}
           >
             {autoCompleteChildren}
@@ -32,7 +32,7 @@ const Form = props => {
             {...field}
             className='item-fields item-fields-quantity'
             type='number'
-            placeholder="Digite a quantidade"
+            placeholder="Quantidade"
           />
         )}
       />
