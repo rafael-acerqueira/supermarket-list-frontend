@@ -13,8 +13,10 @@ const Header = () => (
       </div>
       <Menu mode='horizontal' defaultSelectedKeys={['1']} theme="dark" >
         <Menu.Item key="1">
-          <Icon type='dashboard' />
-          <span>Dashboard</span>
+          <Link to='/dashboard'>
+            <Icon type='dashboard' />
+            <span>Dashboard</span>
+          </Link>
         </Menu.Item>
         <Menu.Item key="2">
           <Link to='/supermarkets/list'>

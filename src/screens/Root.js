@@ -14,8 +14,11 @@ import ScreensShoppingListList from '../screens/ShoppingList/List'
 import ScreensShoppingListForm from '../screens/ShoppingList/Form'
 import ScreensShoppingListItems from '../screens/ShoppingList/Items'
 
+import Dashboard from '../screens/Dashboard/Dashboard'
+
 const ScreensRoot = () => (
   <Switch>
+    <Route path='/' exact component={Dashboard} />
     <Route path='/supermarkets/new' component={ScreensSupermarketForm}/>
     <Route path='/supermarkets/:id/edit' component={ScreensSupermarketForm}/>
     <Route path='/supermarkets/list' component={ScreensSupermarketList} />
