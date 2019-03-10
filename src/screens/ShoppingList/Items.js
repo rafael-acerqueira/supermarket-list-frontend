@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react'
+import moment from 'moment'
 import Show from '../../components/ShoppinListItem/Show/Show'
+import TitleContent from '../../components/UI/TitleContent/TitleContent'
 import api from '../../api'
 import { Spin, Icon } from 'antd'
 class ScreensShoppingListItems extends PureComponent {
@@ -26,17 +28,21 @@ class ScreensShoppingListItems extends PureComponent {
 
   render() {
     const antIcon = <Icon type="loading" spin />
+    const { shoppingList } = this.state
     return (
-      <>
+      <div>
+        <TitleContent 
+          title={`Lista do dia ${moment.utc(shoppingList.date).format('DD/MM/YYYY')} ${shoppingList.done? 'está Finalizada' : 'não está finalizada'}`}
+          pageInfo='Abaixo estão listados os itens'
+        />
         {this.state.isLoading 
           ? <Spin indicator={antIcon} />
           : <Show 
-              shoppingList={this.state.shoppingList}
-              items={this.state.items}
+              items={shoppingList.items}
             />
         }
         
-      </>
+      </div>
       
     )
   }
