@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import List from '../../components/Product/List/List'
+import TitleContent from '../../components/UI/TitleContent/TitleContent'
 import api from '../../api'
 import { Spin, Icon } from 'antd'
 class ScreensProductList extends PureComponent {
@@ -53,18 +54,24 @@ class ScreensProductList extends PureComponent {
 
   render() {
     const antIcon = <Icon type="loading" spin />
+    const { productCategory } = this.state
     return (
-      <>
+      <div>
+        <TitleContent 
+          title={`Todos os produtos de ${productCategory.name}`}
+          pageInfo={`Abaixo estão listados todos os produtos cadastrados de ${productCategory.name}`}
+          newElementPath={`/product-categories/${productCategory._id}/products/new`}
+        />
         {this.state.isLoading 
           ? <Spin indicator={antIcon} />
           : <List 
               products={this.state.products}
               handleRemove={this.remove}
-              productCategory={this.state.productCategory}
+              productCategory={productCategory}
             />
         }
         
-      </>
+      </div>
       
     )
   }
