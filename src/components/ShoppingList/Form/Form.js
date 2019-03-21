@@ -13,7 +13,7 @@ const Option = Select.Option
 
 const ShoppingListForm = props => {
   const antIcon = <Icon type="loading" spin />
-  const { values, handleSubmit, setFieldValue, isSubmitting, handleSearch, errors, title, dataSource } = props
+  const { values, handleSubmit, setFieldValue, isSubmitting, handleSearch, errors, dataSource } = props
   return (
     <div className='center-content wrapper-content'>
       <Form onSubmit={handleSubmit} className='form'>
@@ -35,7 +35,7 @@ const ShoppingListForm = props => {
             </Form.Item>
             <Form.Item
               label="Supermercado"
-              className='shopping-list-supemarket'
+              className='shopping-list-supermarket'
             >
               <Select
                 name='supermarket'
@@ -118,7 +118,7 @@ export default withFormik({
     ).required('Devem ter itens na lista').min(1, 'Mínimo de 1 item na lista')
   }),
   handleSubmit: (values, { props, setSubmitting, setErrors }) => {
-    if (values['supermarket'] === '') delete values['supermarket']
+    if (values['supermarket'] === '') values['supermarket'] = '0000'
     props.handleSave(values, props.shoppingList._id)
     .then(() => {
       message.success(`Lista de compras ${props.message} com sucesso.`)

@@ -1,0 +1,34 @@
+.shopping-list-buy {
+  background-color: #FFF;
+}
+
+.shopping-list-buy-table {
+  width: 100%;
+}
+
+.table-align-center {
+  text-align: center !important;
+}
+
+.found {
+  color: #ccc;
+  text-decoration: line-through;
+}
+
+.shopping-list-done {
+  float: right;
+  margin-top: 30px;
+}
+
+.shopping-list-show .shopping-list-supermarket {
+  float: right;
+  width: 100%;
+}
+
+.shopping-list-show .shopping-list-supermarket .ant-select {
+  width: 20%;
+}
+
+.shopping-list-show .shopping-list-supermarket-label {
+  margin-right: 5px;
+}

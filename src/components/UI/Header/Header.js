@@ -36,6 +36,12 @@ const Header = () => (
             <span>Listas de Compras</span>
           </Link>
         </Menu.Item>
+        <Menu.Item key="5">
+          <Link to='/shopping-lists/buy'>
+          <Icon type="shopping-cart" />
+            <span>Efetuar compra</span>
+          </Link>
+        </Menu.Item>
       </Menu>
     </div>
   </Layout.Header>

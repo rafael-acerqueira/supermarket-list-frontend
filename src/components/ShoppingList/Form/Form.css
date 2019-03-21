@@ -22,11 +22,11 @@
   margin-right: 5px;
 }
 
-.shopping-list-supemarket {
-  width: 19% !important;
+.shopping-list-supermarket {
+  width: 19%;
 }
 
-.shopping-list-fields .ant-form-item-label, .shopping-list-supemarket .ant-form-item-label {
+.shopping-list-fields .ant-form-item-label, .shopping-list-supermarket .ant-form-item-label {
   text-align: center;
   width: 100%;
 }
