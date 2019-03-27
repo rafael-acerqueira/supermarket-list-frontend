@@ -1,0 +1,51 @@
+.bg-green {
+  background-color: green;
+}
+
+.bg-red {
+  background-color: firebrick;
+}
+
+.bg-shopping-quantity {
+  background-color: black;
+}
+
+.bg-shopping-value {
+  background-color: darkslateblue;
+}
+
+.small-box {
+  align-items: center;
+  display: flex;  
+  justify-content: space-evenly;
+  height: 85px;
+}
+
+.small-box:hover .icon {
+  font-size: 36px;
+}
+
+.small-box .inner {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  width: 75%;
+}
+
+.small-box .icon {
+  color: #FFF;
+  font-size: 30px;
+  transition: font-size .5s;
+}
+
+.small-box .inner-value {
+  color: #FFF;
+  font-size: 30px;
+  margin-bottom: 0;
+}
+
+.small-box .inner-text {
+  color: #FFF;
+  margin-bottom: 0;
+  width: 50%;
+}

@@ -1,8 +1,11 @@
 import React, { PureComponent } from 'react'
 import TitleContent from '../../components/UI/TitleContent/TitleContent'
 import Graph from '../../components/Dashboard/Graph'
+import ValueBox from '../../components/Dashboard/ValueBox/ValueBox'
 import api from '../../api'
 import moment from 'moment'
+
+import { Col, Row } from 'antd'
 
 class Dashboard extends PureComponent {
 
@@ -10,7 +13,9 @@ class Dashboard extends PureComponent {
     super(props)
 
     this.state = {
-      graphData: []
+      graphData: [],
+      shoppingQuantity: 0,
+      shoppingValue: 0
     }
   }
 
@@ -23,16 +28,65 @@ class Dashboard extends PureComponent {
     }catch(error) {
       console.log(error)
     }
+
+    try{
+      const response =  await api('get', `/shopping-lists/${new Date(). getMonth() + 1}/purchase-quantity`)
+      this.setState({ shoppingQuantity: response.data.purchasesThisMonth })
+    }catch(error) {
+      console.log(error)
+    }
+
+    try{
+      const response =  await api('get', `/shopping-lists/${new Date(). getMonth() + 1}/total-value`)
+      this.setState({ shoppingValue: response.data.total })
+    }catch(error) {
+      console.log(error)
+    }    
   }
 
   render() {
+
+    const { shoppingQuantity, shoppingValue } = this.state
+
     return (
       <div>
         <TitleContent
           title='Dashboard'
           pageInfo='Informações mais relevantes são exibidas abaixo'
         />
-        <Graph data={this.state.graphData}/>
+        <div className='center-content wrapper-content'>
+          <Row gutter={16}>
+            <Col span={8}>
+              <ValueBox 
+                color="shopping-quantity"
+                value={shoppingQuantity}
+                text="Compras no mês"
+                icon="check"
+              />
+            </Col>
+            <Col span={8}>
+              <ValueBox 
+                color="shopping-value"
+                value={shoppingValue}
+                text="Valor gasto no mês"
+                icon="dollar"
+              />
+            </Col>
+            <Col span={8}>
+              <ValueBox 
+                color="red"
+                value={0}
+                text="Relação entre mês corrente e anterior"
+                icon="alert"
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Graph 
+              data={this.state.graphData}
+            />
+          </Row>
+        </div>
       </div>
     )
   }
