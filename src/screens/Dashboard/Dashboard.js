@@ -54,38 +54,40 @@ class Dashboard extends PureComponent {
           title='Dashboard'
           pageInfo='Informações mais relevantes são exibidas abaixo'
         />
-        <div className='center-content wrapper-content'>
-          <Row gutter={16}>
-            <Col span={8}>
-              <ValueBox 
-                color="shopping-quantity"
-                value={shoppingQuantity}
-                text="Compras no mês"
-                icon="check"
+        <div className='center-content wrapper-content '>
+          <div className='dashboard-wrapper'>
+            <Row gutter={16}>
+              <Col span={8}>
+                <ValueBox 
+                  color="shopping-quantity"
+                  value={shoppingQuantity}
+                  text="Compras no mês"
+                  icon="check"
+                />
+              </Col>
+              <Col span={8}>
+                <ValueBox 
+                  color="shopping-value"
+                  value={shoppingValue}
+                  text="Valor gasto no mês"
+                  icon="dollar"
+                />
+              </Col>
+              <Col span={8}>
+                <ValueBox 
+                  color="red"
+                  value={0}
+                  text="Relação entre mês corrente e anterior"
+                  icon="alert"
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Graph 
+                data={this.state.graphData}
               />
-            </Col>
-            <Col span={8}>
-              <ValueBox 
-                color="shopping-value"
-                value={shoppingValue}
-                text="Valor gasto no mês"
-                icon="dollar"
-              />
-            </Col>
-            <Col span={8}>
-              <ValueBox 
-                color="red"
-                value={0}
-                text="Relação entre mês corrente e anterior"
-                icon="alert"
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Graph 
-              data={this.state.graphData}
-            />
-          </Row>
+            </Row>
+          </div>
         </div>
       </div>
     )
