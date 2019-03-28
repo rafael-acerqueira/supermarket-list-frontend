@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react'
+import { Col, Row } from 'antd'
+import moment from 'moment'
+
 import TitleContent from '../../components/UI/TitleContent/TitleContent'
 import Graph from '../../components/Dashboard/Graph'
 import ValueBox from '../../components/Dashboard/ValueBox/ValueBox'
+import AverageTable from '../../components/Dashboard/AverageTable/AverageTable'
 import api from '../../api'
-import moment from 'moment'
-
-import { Col, Row } from 'antd'
 
 class Dashboard extends PureComponent {
 
@@ -15,7 +16,8 @@ class Dashboard extends PureComponent {
     this.state = {
       graphData: [],
       shoppingQuantity: 0,
-      shoppingValue: 0
+      shoppingValue: 0,
+      averageValue: []
     }
   }
 
@@ -41,13 +43,18 @@ class Dashboard extends PureComponent {
       this.setState({ shoppingValue: response.data.total })
     }catch(error) {
       console.log(error)
-    }    
+    } 
+    
+    try{
+      const response =  await api('get', '/shopping-lists/product-average')      
+      this.setState({ averageValue: response.data })
+    }catch(error) {
+      console.log(error)
+    }     
   }
 
   render() {
-
-    const { shoppingQuantity, shoppingValue } = this.state
-
+    const { shoppingQuantity, shoppingValue, averageValue } = this.state
     return (
       <div>
         <TitleContent
@@ -81,6 +88,9 @@ class Dashboard extends PureComponent {
                   icon="alert"
                 />
               </Col>
+            </Row>
+            <Row>
+              <AverageTable items={averageValue} />
             </Row>
             <Row>
               <Graph 
