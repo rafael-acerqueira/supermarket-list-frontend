@@ -17,6 +17,7 @@ class Dashboard extends PureComponent {
       graphData: [],
       shoppingQuantity: 0,
       shoppingValue: 0,
+      saveOrWaste: 0,
       averageValue: []
     }
   }
@@ -32,14 +33,14 @@ class Dashboard extends PureComponent {
     }
 
     try{
-      const response =  await api('get', `/shopping-lists/${new Date(). getMonth() + 1}/purchase-quantity`)
+      const response =  await api('get', `/shopping-lists/${new Date().getMonth() + 1}/purchase-quantity`)
       this.setState({ shoppingQuantity: response.data.purchasesThisMonth })
     }catch(error) {
       console.log(error)
     }
 
     try{
-      const response =  await api('get', `/shopping-lists/${new Date(). getMonth() + 1}/total-value`)
+      const response =  await api('get', `/shopping-lists/${new Date().getMonth() + 1}/total-value`)
       this.setState({ shoppingValue: response.data.total })
     }catch(error) {
       console.log(error)
@@ -50,11 +51,19 @@ class Dashboard extends PureComponent {
       this.setState({ averageValue: response.data })
     }catch(error) {
       console.log(error)
-    }     
+    }
+    
+    try{
+      const response =  await api('get', '/shopping-lists/save-or-waste')
+      this.setState({ saveOrWaste: response.data.total })
+    }catch(error) {
+      console.log(error)
+    }
+    
   }
 
   render() {
-    const { shoppingQuantity, shoppingValue, averageValue } = this.state
+    const { shoppingQuantity, shoppingValue, averageValue, saveOrWaste } = this.state
     return (
       <div>
         <TitleContent
@@ -82,10 +91,10 @@ class Dashboard extends PureComponent {
               </Col>
               <Col span={8}>
                 <ValueBox 
-                  color="red"
-                  value={0}
-                  text="Relação entre mês corrente e anterior"
-                  icon="alert"
+                  color={saveOrWaste > 0 ? 'red' : 'green'}
+                  value={saveOrWaste}
+                  text={saveOrWaste > 0 ? 'gastos a mais em relação ao mês passado' : 'economizados em relação ao mês passado'}
+                  icon={saveOrWaste > 0 ? 'alert' : 'trophy'}
                 />
               </Col>
             </Row>
