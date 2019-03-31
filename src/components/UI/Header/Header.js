@@ -2,15 +2,14 @@ import React from 'react'
 import { Layout, Menu, Icon } from 'antd'
 import { Link } from 'react-router-dom'
 
+import Logo from '../Logo/Logo'
+
 import './Header.css'
 
 const Header = () => (
   <Layout.Header>
     <div className='center-content'>
-      <div className='logo'>
-        <Icon type="shopping-cart" />
-        <h1 className='logo-title'>My Supermarket List</h1>
-      </div>
+      <Logo />
       <Menu mode='horizontal' defaultSelectedKeys={['1']} theme="dark" >
         <Menu.Item key="1">
           <Link to='/dashboard'>

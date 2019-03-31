@@ -4,8 +4,6 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { Layout } from 'antd'
 
-import Header from './components/UI/Header/Header'
-import Footer from './components/UI/Footer/Footer'
 import Root from './screens/Root'
 
 import './App.css'
@@ -15,9 +13,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Layout className='layout'>
-          <Header />
           <Root />
-          <Footer />
         </Layout>
       </BrowserRouter>
     )

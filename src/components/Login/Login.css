@@ -1,0 +1,39 @@
+.login-form {
+  background-color: #001529;
+  max-width: 400px;
+  padding: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.login-form .ant-form-item-children {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.login-form .logo {
+  display: flex;
+  margin-bottom: 30px;
+  justify-content: center;
+  width: 100%;
+}
+
+.login-form-button {
+  width: 100%;
+}
+
+.login-form-error {
+  color: #096dd9;
+  text-align: center;
+}
+
+.login-page-wrapper {
+  background: url('../../images/bg.jpg') no-repeat center center;
+  filter: blur(4px);
+  position: relative;
+  height: 100vh;
+}

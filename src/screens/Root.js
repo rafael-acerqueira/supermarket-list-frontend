@@ -15,25 +15,48 @@ import ScreensShoppingListForm from '../screens/ShoppingList/Form'
 import ScreensShoppingListItems from '../screens/ShoppingList/Items'
 import ScreensShoppingListBuy from '../screens/ShoppingList/Buy'
 
+import Header from '../components/UI/Header/Header'
+import Footer from '../components/UI/Footer/Footer'
+import { isAuthenticated } from '../services/auth'
+import Login from '../screens/Login'
+
 import Dashboard from '../screens/Dashboard/Dashboard'
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      isAuthenticated() ? (
+        <>
+          <Header />
+          <Component {...props} />
+          <Footer />
+        </>
+      ) : (
+        <Redirect to={{ pathname: "/login", state: { from: props.location } }} />
+      )
+    }
+  />
+)
 
 const ScreensRoot = () => (
   <Switch>
-    <Route path='/' exact component={Dashboard} />
-    <Route path='/supermarkets/new' component={ScreensSupermarketForm}/>
-    <Route path='/supermarkets/:id/edit' component={ScreensSupermarketForm}/>
-    <Route path='/supermarkets/list' component={ScreensSupermarketList} />
-    <Route path='/product-categories/new' component={ScreensProductCategoryForm}/>
-    <Route path='/product-categories/:id/edit' component={ScreensProductCategoryForm}/>
-    <Route path='/product-categories/list' component={ScreensProductCategoryList} />
-    <Route path='/product-categories/:productCategoryId/products/new' component={ScreensProductForm}/>
-    <Route path='/product-categories/:productCategoryId/products/:id/edit' component={ScreensProductForm}/>
-    <Route path='/product-categories/:productCategoryId/products' component={ScreensProductList}/>
-    <Route path='/shopping-lists/list' component={ScreensShoppingListList} />
-    <Route path='/shopping-lists/new' component={ScreensShoppingListForm}/>
-    <Route path='/shopping-lists/:id/edit' component={ScreensShoppingListForm}/>
-    <Route path='/shopping-lists/:id/items' component={ScreensShoppingListItems}/>
-    <Route path='/shopping-lists/buy' component={ScreensShoppingListBuy}/>
+    <PrivateRoute path='/' exact component={Dashboard} />
+    <PrivateRoute path='/supermarkets/new' component={ScreensSupermarketForm}/>
+    <PrivateRoute path='/supermarkets/:id/edit' component={ScreensSupermarketForm}/>
+    <PrivateRoute path='/supermarkets/list' component={ScreensSupermarketList} />
+    <PrivateRoute path='/product-categories/new' component={ScreensProductCategoryForm}/>
+    <PrivateRoute path='/product-categories/:id/edit' component={ScreensProductCategoryForm}/>
+    <PrivateRoute path='/product-categories/list' component={ScreensProductCategoryList} />
+    <PrivateRoute path='/product-categories/:productCategoryId/products/new' component={ScreensProductForm}/>
+    <PrivateRoute path='/product-categories/:productCategoryId/products/:id/edit' component={ScreensProductForm}/>
+    <PrivateRoute path='/product-categories/:productCategoryId/products' component={ScreensProductList}/>
+    <PrivateRoute path='/shopping-lists/list' component={ScreensShoppingListList} />
+    <PrivateRoute path='/shopping-lists/new' component={ScreensShoppingListForm}/>
+    <PrivateRoute path='/shopping-lists/:id/edit' component={ScreensShoppingListForm}/>
+    <PrivateRoute path='/shopping-lists/:id/items' component={ScreensShoppingListItems}/>
+    <PrivateRoute path='/shopping-lists/buy' component={ScreensShoppingListBuy}/>
+    <Route path='/login' component={Login}/>
     <Redirect from='*' to='/' />
   </Switch>
 )
