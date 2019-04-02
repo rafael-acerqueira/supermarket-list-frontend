@@ -17,7 +17,7 @@ import ScreensShoppingListBuy from '../screens/ShoppingList/Buy'
 
 import Header from '../components/UI/Header/Header'
 import Footer from '../components/UI/Footer/Footer'
-import { isAuthenticated } from '../services/auth'
+import { isAuthenticated, logout } from '../services/auth'
 import Login from '../screens/Login'
 
 import Dashboard from '../screens/Dashboard/Dashboard'
@@ -28,7 +28,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     render={props =>
       isAuthenticated() ? (
         <>
-          <Header />
+          <Header logoutToken={logout}/>
           <Component {...props} />
           <Footer />
         </>
