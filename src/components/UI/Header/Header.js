@@ -17,7 +17,9 @@ const Header = (props) => {
   return (
     <Layout.Header>
       <div className='center-content'>
-        <Logo />
+        <Link to='/'>
+          <Logo />
+        </Link>
         <Menu mode='horizontal' defaultSelectedKeys={['1']} theme="dark" >
           <Menu.Item key="1">
             <Link to='/dashboard'>

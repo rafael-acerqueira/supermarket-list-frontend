@@ -20,8 +20,22 @@ const AverageTable = ({items}) => {
             <tr key={item._id}>
               <td className='table-align-center'>{item.productName}</td>
               <td className='table-align-center'>{item.quantity}</td>
-              <td className='table-align-center'>{item.value}</td>
-              <td className='table-align-center'>{item.averageValue}</td>
+              <td className='table-align-center'>
+                { 
+                  new Intl.NumberFormat('pt-BR',
+                    { style: 'currency',
+                      currency: 'BRL'
+                    }).format(item.value)
+                }
+              </td>
+              <td className='table-align-center'>
+                { 
+                  new Intl.NumberFormat('pt-BR',
+                    { style: 'currency',
+                      currency: 'BRL'
+                    }).format(item.averageValue)
+                }
+              </td>
             </tr>
           ))}
         </tbody>

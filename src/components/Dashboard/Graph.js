@@ -5,11 +5,13 @@ const Graph = ({ data }) => (
   <div className='center-content wrapper-content'>
     <h2 className='text-center'>Gastos mês a mês</h2>
     <LineChart width={1100} height={400} data={data}>
-      <Line type="monotone" dataKey="valor" stroke="#8884d8" />
+      <Line type="monotone" dataKey="Valor" stroke="#8884d8" />
       <CartesianGrid stroke="#ccc" />
-      <XAxis dataKey="mes" />
+      <XAxis dataKey="Mês" />
       <YAxis />
-      <Tooltip />
+      <Tooltip
+        formatter={(value) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }
+      ).format(value)}/>
     </LineChart>
   </div>
 )

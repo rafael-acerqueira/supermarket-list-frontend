@@ -26,7 +26,8 @@ class Dashboard extends PureComponent {
     try{
       const response =  await api('get', '/shopping-lists/month-by-month')
       this.setState({ 
-        graphData: response.data.map(element => ({ mes: moment().month(+element._id.month - 1).format("MMMM"), valor: element.total}))
+        graphData: response.data.map(element => ({
+           Mês: moment().month(+element._id.month - 1).format("MMMM"), Valor: element.total.toFixed(2)}))
       })
     }catch(error) {
       console.log(error)
@@ -55,7 +56,7 @@ class Dashboard extends PureComponent {
     
     try{
       const response =  await api('get', '/shopping-lists/save-or-waste')
-      this.setState({ saveOrWaste: response.data.total })
+      this.setState({ saveOrWaste: response.data.total < 0 ? response.data.total * -1 : response.data.total })
     }catch(error) {
       console.log(error)
     }
@@ -79,6 +80,7 @@ class Dashboard extends PureComponent {
                   value={shoppingQuantity}
                   text="Compras no mês"
                   icon="check"
+                  quantity={true}
                 />
               </Col>
               <Col md={8}>

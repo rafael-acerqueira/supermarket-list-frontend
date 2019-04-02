@@ -8,7 +8,11 @@ const Show = ({ items }) => {
       key: index,
       product: item.productName,
       quantity: item.quantity,
-      value: item.value,
+      value:
+        new Intl.NumberFormat('pt-BR',
+          { style: 'currency',
+            currency: 'BRL'
+          }).format(item.value),
       found: item.found ? 'Sim' : 'Não'
     }))
   }
