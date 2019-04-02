@@ -51,7 +51,7 @@ const Header = (props) => {
           </Menu.Item>
         </Menu>
       </div>
-      <a target='#' onClick={logout} className='logout-link'>Sair</a>
+      <button className='logout-link' onClick={logout} >Sair</button>
     </Layout.Header>
   )
 }

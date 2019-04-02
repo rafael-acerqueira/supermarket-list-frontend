@@ -24,9 +24,9 @@ const ShoppingList = ({ shoppingLists, handleRemove }) => (
                   </Link>
                 </Tooltip>
                 <Tooltip title="Apagar">
-                  <a onClick={() =>handleRemove(shoppingList._id)}>
+                  <button className='delete-button' onClick={() =>handleRemove(shoppingList._id)}>
                     <Icon type="delete" />
-                  </a>
+                  </button>
                 </Tooltip>
                 {
                   shoppingList.items &&

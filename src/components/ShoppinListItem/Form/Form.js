@@ -38,9 +38,9 @@ const Form = props => {
       />
       <ErrorMessage name={`items.${index}.quantity`} />
       <Tooltip title="Remover">
-        <a onClick={() => arrayHelpers.remove(index)}>
+        <button className='delete-button' onClick={() => arrayHelpers.remove(index)}>
           <Icon type="delete" />
-        </a>
+        </button>
       </Tooltip>
 
     </>

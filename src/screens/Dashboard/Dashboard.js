@@ -73,7 +73,7 @@ class Dashboard extends PureComponent {
         <div className='center-content wrapper-content '>
           <div className='dashboard-wrapper'>
             <Row gutter={16}>
-              <Col span={8}>
+              <Col md={8}>
                 <ValueBox 
                   color="shopping-quantity"
                   value={shoppingQuantity}
@@ -81,7 +81,7 @@ class Dashboard extends PureComponent {
                   icon="check"
                 />
               </Col>
-              <Col span={8}>
+              <Col md={8}>
                 <ValueBox 
                   color="shopping-value"
                   value={shoppingValue}
@@ -89,7 +89,7 @@ class Dashboard extends PureComponent {
                   icon="dollar"
                 />
               </Col>
-              <Col span={8}>
+              <Col md={8}>
                 <ValueBox 
                   color={saveOrWaste > 0 ? 'red' : 'green'}
                   value={saveOrWaste}

@@ -34,3 +34,9 @@
 .text-center {
   text-align: center;
 }
+
+.delete-button {
+  background-color: transparent;
+  border: none;
+  color: #1890ff;
+}

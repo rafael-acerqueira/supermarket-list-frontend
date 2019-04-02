@@ -14,5 +14,7 @@
 }
 
 .logout-link {
+  background-color: transparent;
+  border: none;
   color: #FFF;
 }

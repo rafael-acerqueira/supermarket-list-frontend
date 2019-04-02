@@ -16,9 +16,9 @@ const List = ({ productCategories, handleRemove }) => (
                 </Link>
               </Tooltip>
               <Tooltip title="Apagar">
-                <a onClick={() => handleRemove(productCategory._id)}>
+                <button className='delete-button' onClick={() => handleRemove(productCategory._id)}>
                   <Icon type="delete" />
-                </a>
+                </button>
               </Tooltip>
               <Tooltip title="Listar produtos">
                 <Link to={`/product-categories/${productCategory._id}/products`}>
