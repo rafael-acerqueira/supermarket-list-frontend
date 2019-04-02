@@ -1,8 +1,6 @@
 import React from 'react'
 import { Table } from 'antd'
 
-import './Show.css'
-
 const Show = ({ items }) => {
   let dataSource = []
   if (items) {

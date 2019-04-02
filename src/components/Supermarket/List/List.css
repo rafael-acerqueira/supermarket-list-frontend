@@ -1,7 +1,3 @@
-.supermarket-item {
-  margin-bottom: 30px;
-}
-
 .supermarket-item .ant-card-body {
   display: flex;
   justify-content: space-evenly;

@@ -39,4 +39,22 @@
   background-color: transparent;
   border: none;
   color: #1890ff;
+  padding: 0;
+}
+
+.shopping-list-buy-table {
+  width: 100%;
+}
+
+.table-align-center {
+  text-align: center !important;
+}
+
+.supermarket-item {
+  margin-bottom: 30px;
+}
+
+.shopping-list-show {
+  background-color: #FFF;
+  padding: 50px;
 }

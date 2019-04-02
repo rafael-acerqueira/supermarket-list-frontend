@@ -2,14 +2,6 @@
   background-color: #FFF;
 }
 
-.shopping-list-buy-table {
-  width: 100%;
-}
-
-.table-align-center {
-  text-align: center !important;
-}
-
 .found {
   color: #ccc;
   text-decoration: line-through;

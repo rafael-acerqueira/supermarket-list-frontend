@@ -3,8 +3,6 @@ import { withFormik } from 'formik'
 import * as Yup from 'yup'
 import { Form, Input, Button, Spin, Icon, message } from 'antd'
 
-import './Form.css'
-
 const ProductCategoryForm = props => {
   const antIcon = <Icon type="loading" spin />
   const { values, handleChange, handleSubmit, handleBlur, isSubmitting, errors } = props

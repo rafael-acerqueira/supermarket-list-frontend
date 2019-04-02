@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Card, Tooltip, Icon, Col, Row } from 'antd'
-import './List.css'
 
 const List = ({ productCategories, handleRemove }) => (
   <div className='center-content wrapper-content'>
