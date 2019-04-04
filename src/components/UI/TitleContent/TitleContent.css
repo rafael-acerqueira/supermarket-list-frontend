@@ -1,6 +1,7 @@
 .panel {
-  height: 140px;
   background-color: #FFF;
+  height: 140px;
+  padding: 0 30px;
   width: 100%;
 }
 
@@ -13,4 +14,19 @@
   float: left;
   margin-top: 50px;
   width: 100%;
+}
+
+@media (max-width: 425px) {
+  .panel {
+    padding: 0 10px;
+  }
+
+  .page-title {
+    text-align: center;
+  }
+
+  .page-info {
+    display: block;
+    text-align: center;
+  }
 }

@@ -58,3 +58,15 @@
   background-color: #FFF;
   padding: 50px;
 }
+
+@media (max-width: 1024px) {
+  .wrapper-list {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 425px) {
+  .center-content .add-button {
+    bottom: 70%;
+  }
+}

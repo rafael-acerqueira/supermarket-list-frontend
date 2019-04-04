@@ -5,7 +5,7 @@ import { Card, Tooltip, Icon, Col, Row } from 'antd'
 
 const ShoppingList = ({ shoppingLists, handleRemove }) => (
   <div className='center-content wrapper-content'>
-    <Row gutter={16}>
+    <Row gutter={16} className='wrapper-list'>
       {
        shoppingLists.map( shoppingList => {
           const icon =
@@ -13,7 +13,7 @@ const ShoppingList = ({ shoppingLists, handleRemove }) => (
                 ? <Tooltip title="Finalizado"><Icon type="check" /></Tooltip>
                 : <Tooltip title="Não Finalizado"><Icon type="stop" /></Tooltip>
           return (
-            <Col span={8} key={shoppingList._id} className='supermarket-item'>
+            <Col md={8} sm={12} key={shoppingList._id} className='supermarket-item'>
               <Card
                 title={moment.utc(shoppingList.date).format('DD/MM/YYYY')}
                 extra={icon}

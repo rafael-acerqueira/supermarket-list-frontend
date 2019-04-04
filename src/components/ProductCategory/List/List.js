@@ -4,10 +4,10 @@ import { Card, Tooltip, Icon, Col, Row } from 'antd'
 
 const List = ({ productCategories, handleRemove }) => (
   <div className='center-content wrapper-content'>
-    <Row gutter={16}>
+    <Row gutter={16} className='wrapper-list'>
       {
         productCategories.map( productCategory => (
-          <Col span={8} key={productCategory._id} className='supermarket-item'>
+          <Col md={8} sm={12} key={productCategory._id} className='supermarket-item'>
             <Card title={productCategory.name}>
               <Tooltip title="Editar">
                 <Link to={`/product-categories/${productCategory._id}/edit`}>
