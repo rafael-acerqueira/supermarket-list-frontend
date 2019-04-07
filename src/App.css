@@ -69,4 +69,15 @@
   .center-content .add-button {
     bottom: 70%;
   }
+
+  .shopping-list-show {
+    padding: 0;
+  }
+
+  .table-wrapper {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+  }
+
 }

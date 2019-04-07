@@ -37,8 +37,8 @@ const Show = ({ items }) => {
 
   return (
     <div className='center-content wrapper-content'>
-      <div className='shopping-list-show'>
-        <Table dataSource={dataSource} columns={columns} />
+      <div className='shopping-list-show table-wrapper'>
+        <Table dataSource={dataSource} columns={columns} size/>
       </div>
     </div>
   )

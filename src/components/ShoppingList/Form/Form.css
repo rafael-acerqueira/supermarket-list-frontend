@@ -30,3 +30,24 @@
   text-align: center;
   width: 100%;
 }
+
+
+@media (max-width: 425px) {
+  .shopping-list-fields {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .shopping-list-supermarket {
+    width: 100%;
+  }
+
+  .item-fields-product, .item-fields-quantity {
+    width: 85% !important;
+  }
+
+  .item-line {
+    float: left;
+    margin-bottom: 30px;
+  }
+}

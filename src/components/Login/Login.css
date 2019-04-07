@@ -37,3 +37,9 @@
   position: relative;
   height: 100vh;
 }
+
+@media (max-width: 425px) {
+  .login-form {
+    width: 85%;
+  }
+}

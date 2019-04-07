@@ -18,3 +18,29 @@
   border: none;
   color: #FFF;
 }
+
+@media (max-width: 1024px) {
+  .ant-menu-horizontal {
+    width: 65%;
+  }
+}
+
+@media (max-width: 768px) {
+  .ant-menu-horizontal {
+    width: 24%;
+  }
+}
+
+@media (max-width: 425px) {
+  .ant-layout-header {
+    padding: 0 10px;
+  }
+
+  .ant-menu-horizontal {
+    width: 15%;
+  }
+
+  .logout-link {
+    float: right;
+  }
+}

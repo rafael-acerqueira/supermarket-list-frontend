@@ -60,7 +60,7 @@ const ShoppingListForm = props => {
                 render={arrayHelpers => (
                   <div>
                     {values.items.map((item, index) => (
-                      <div key={index}>
+                      <div key={index} className='item-line'>
                         <ShoppingListItem
                           index={index}
                           arrayHelpers={arrayHelpers}

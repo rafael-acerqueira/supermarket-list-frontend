@@ -3,7 +3,7 @@ import { Col, Row } from 'antd'
 import moment from 'moment'
 
 import TitleContent from '../../components/UI/TitleContent/TitleContent'
-import Graph from '../../components/Dashboard/Graph'
+import Chart from '../../components/Dashboard/Chart'
 import ValueBox from '../../components/Dashboard/ValueBox/ValueBox'
 import AverageTable from '../../components/Dashboard/AverageTable/AverageTable'
 import api from '../../api'
@@ -104,7 +104,7 @@ class Dashboard extends PureComponent {
               <AverageTable items={averageValue} />
             </Row>
             <Row>
-              <Graph 
+              <Chart 
                 data={this.state.graphData}
               />
             </Row>

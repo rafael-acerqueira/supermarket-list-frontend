@@ -55,3 +55,22 @@
   text-align: center;
   width: 50%;
 }
+
+@media (max-width: 1024px) {
+
+  .small-box {
+    height: unset;
+    min-height: 155px;
+    flex-direction: column;
+  }
+
+  .small-box .inner-text {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .small-box .inner {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+}

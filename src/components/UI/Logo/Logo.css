@@ -13,5 +13,11 @@
   float: left;
   justify-content: space-evenly;
   height: 100%;
-  width: 18%;
+  width: 20%;
+}
+
+@media (max-width: 1024px) {
+  .logo {
+    width: 210px;
+  }
 }
