@@ -1,5 +1,4 @@
 import axios from 'axios'
+import consts from './consts'
 
-const BASE_URL = 'http://localhost:3003/api'
-
-export default (verb, path_name, values = null) => axios[verb](BASE_URL + path_name, values)
+export default (verb, path_name, values = null) => axios[verb](consts.API_URL + path_name, values)
