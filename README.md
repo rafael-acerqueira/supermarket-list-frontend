@@ -9,3 +9,18 @@ I made this project to manage my supermarket lists. So, this frontend is built w
 
 ###Dashboard
 ![Dashboard](https://raw.githubusercontent.com/rafael-acerqueira/supermarket-list-frontend/master/src/screenshots/Dashboard.png)
+
+###Product Category
+![Product Category](https://raw.githubusercontent.com/rafael-acerqueira/supermarket-list-frontend/master/src/screenshots/product_category.png)
+
+###Buy List
+![Buy List](https://raw.githubusercontent.com/rafael-acerqueira/supermarket-list-frontend/master/src/screenshots/buy_list.png)
+
+###New List
+![New List](https://raw.githubusercontent.com/rafael-acerqueira/supermarket-list-frontend/master/src/screenshots/new_buy_list.png)
+
+###See Items
+![See Items](https://raw.githubusercontent.com/rafael-acerqueira/supermarket-list-frontend/master/src/screenshots/see_buy_list.png)
+
+###Buy Item
+![Buy item](https://raw.githubusercontent.com/rafael-acerqueira/supermarket-list-frontend/master/src/screenshots/buy.png)
